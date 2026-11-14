@@ -2,6 +2,7 @@
 vim.pack.add({
 	"https://github.com/omacom/aether.nvim",
 	"https://github.com/nvim-mini/mini.icons",
+	"https://github.com/folke/snacks.nvim",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/b0o/incline.nvim",
 	"https://github.com/rachartier/tiny-cmdline.nvim",
@@ -20,6 +21,7 @@ else
 end
 vim.cmd.colorscheme("aether")
 
+require("mildvii.plugins.snacks")
 require("mildvii.plugins.ui")
 
 -- Keymaps that use plugins, required last so every plugin is set up first.
