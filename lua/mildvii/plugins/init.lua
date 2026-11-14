@@ -1,6 +1,8 @@
 -- Install every plugin in one call. Group files below configure them.
 vim.pack.add({
 	"https://github.com/omacom/aether.nvim",
+	"https://github.com/nvim-mini/mini.icons",
+	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/rachartier/tiny-cmdline.nvim",
 })
 
