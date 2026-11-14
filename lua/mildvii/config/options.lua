@@ -16,3 +16,36 @@ opt.smartindent = true
 
 -- Treat `-` as part of a word, so kebab-case names like `foo-bar` are one word
 opt.iskeyword:append("-")
+
+-- Hybrid line numbers: relative everywhere, real number on the cursor line
+opt.number = true
+opt.relativenumber = true
+
+opt.cursorline = true
+opt.wrap = false
+opt.scrolloff = 10
+opt.sidescrolloff = 8
+
+-- Always show the sign column, so text doesn't jump when git or diagnostic marks appear
+opt.signcolumn = "yes"
+
+-- Maximize vertical space: no command line row, one global statusline
+opt.cmdheight = 0
+opt.laststatus = 3
+
+-- Rounded borders on every float
+opt.winborder = "rounded"
+
+-- Popup menu: at most 10 rows, slightly see-through
+opt.pumheight = 10
+opt.pumblend = 10
+
+-- Briefly flash the matching bracket
+opt.showmatch = true
+opt.matchtime = 2
+
+-- Show the file name in the terminal tab
+opt.title = true
+
+-- Diagonal fill in empty diff areas
+opt.fillchars:append({ diff = "╱" })
