@@ -8,4 +8,14 @@ require("snacks").setup({
 	words = { enabled = true },
 	-- Scrolling should feel instant
 	scroll = { enabled = false },
+	picker = {
+		enabled = true,
+		sources = {
+			-- Dotfiles like `.github/` and `.env.example` are part of real projects
+			files = { hidden = true },
+			grep = { hidden = true },
+			-- Jump to a window that already shows the buffer
+			buffers = { jump = { reuse_win = true } },
+		},
+	},
 })
