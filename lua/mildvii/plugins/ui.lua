@@ -10,6 +10,27 @@ require("tiny-cmdline").setup({
 	},
 })
 
+-- incline: a filename tag in the top-right corner of each window, so every split says which file it holds
+require("incline").setup({
+	hide = {
+		-- Hide the tag in the focused window when the cursor reaches its line
+		cursorline = "focused_win",
+	},
+	render = function(props)
+		local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+		if name == "" then
+			name = "[No Name]"
+		end
+		local icon, icon_hl = MiniIcons.get("file", name)
+		return {
+			{ icon, group = icon_hl },
+			" ",
+			name,
+			vim.bo[props.buf].modified and " [+]" or "",
+		}
+	end,
+})
+
 -- lualine: one global statusline, bubbles style
 local components = Mildvii.lualine
 local lualine_opts = {
