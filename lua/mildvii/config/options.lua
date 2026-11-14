@@ -49,3 +49,27 @@ opt.title = true
 
 -- Diagonal fill in empty diff areas
 opt.fillchars:append({ diff = "╱" })
+
+-- Case-insensitive search until a capital letter is typed
+opt.ignorecase = true
+opt.smartcase = true
+
+-- Let `:find` search subfolders
+opt.path:append("**")
+
+-- `:` completion
+opt.wildmode = "longest:full,full"
+opt.wildignore:append({ "*/node_modules/*", "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
+
+-- No swap or backup files; persistent undo survives closing the file
+opt.swapfile = false
+opt.writebackup = false
+opt.undofile = true
+local undodir = vim.fn.stdpath("cache") .. "/undodir"
+vim.fn.mkdir(undodir, "p")
+opt.undodir = undodir
+
+-- Snappier timing: faster CursorHold events, key sequences resolve without lag
+opt.updatetime = 300
+opt.timeoutlen = 500
+opt.ttimeoutlen = 0
