@@ -73,3 +73,12 @@ opt.undodir = undodir
 opt.updatetime = 300
 opt.timeoutlen = 500
 opt.ttimeoutlen = 0
+
+-- New splits open below and to the right
+opt.splitbelow = true
+opt.splitright = true
+
+-- Folds come from Treesitter; everything starts unfolded
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldlevel = 99
