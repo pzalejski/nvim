@@ -82,3 +82,37 @@ opt.splitright = true
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldlevel = 99
+
+-- Messages: Neovim 0.12's experimental ui2
+require("vim._core.ui2").enable({
+	msg = {
+		-- Short messages go to a corner popup by default
+		target = "msg",
+		targets = {
+			-- Output of a command I type stays in the command line, whatever its kind
+			typed_cmd = "cmd",
+
+			-- These stay in the command line
+			search_count = "cmd",
+			search_cmd = "cmd",
+			completion = "cmd",
+			wildlist = "cmd",
+			confirm = "cmd",
+
+			-- Long output goes to the pager
+			emsg = "pager",
+			echoerr = "pager",
+			lua_error = "pager",
+			rpc_error = "pager",
+			list_cmd = "pager",
+			verbose = "pager",
+			shell_cmd = "pager",
+			shell_out = "pager",
+			shell_err = "pager",
+			shell_ret = "pager",
+			progress = "pager",
+		},
+		msg = { height = 0.3, timeout = 5000 },
+		pager = { height = 0.5 },
+	},
+})
