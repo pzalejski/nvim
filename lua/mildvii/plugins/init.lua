@@ -6,6 +6,7 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/b0o/incline.nvim",
 	"https://github.com/rachartier/tiny-cmdline.nvim",
+	"https://github.com/stevearc/oil.nvim",
 })
 
 -- Colorscheme: theme.lua is a symlink to the file Omarchy generates for the current theme.
@@ -23,6 +24,7 @@ vim.cmd.colorscheme("aether")
 
 require("mildvii.plugins.snacks")
 require("mildvii.plugins.ui")
+require("mildvii.plugins.navigation")
 
 -- Keymaps that use plugins, required last so every plugin is set up first.
 require("mildvii.plugins.keymaps")

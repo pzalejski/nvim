@@ -31,3 +31,8 @@ end, { desc = "Notification history" })
 set("n", ";h", function()
 	Snacks.picker.git_diff()
 end, { desc = "Git hunks" })
+
+-- oil: centered float with a live preview
+set("n", "sf", function()
+	require("oil").open_float(nil, { preview = {} })
+end, { desc = "File explorer" })
