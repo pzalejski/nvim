@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "aether.nvim": {
+      "rev": "7b64e5dceb6129470e7cf6fe0680b269eeab8c4c",
+      "src": "https://github.com/omacom/aether.nvim"
+    },
     "tiny-cmdline.nvim": {
       "rev": "ac9c6557c66da6308eb523643df8778f3cbe652f",
       "src": "https://github.com/rachartier/tiny-cmdline.nvim"
