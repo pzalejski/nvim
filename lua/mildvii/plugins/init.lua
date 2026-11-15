@@ -29,6 +29,8 @@ vim.pack.add({
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
+	"https://github.com/nvim-mini/mini.pairs",
+	"https://github.com/stevearc/conform.nvim",
 })
 
 -- Colorscheme: theme.lua is a symlink to the file Omarchy generates for the current theme.
@@ -50,6 +52,7 @@ require("mildvii.plugins.navigation")
 require("mildvii.plugins.syntax")
 require("mildvii.plugins.completion")
 require("mildvii.plugins.lsp")
+require("mildvii.plugins.formatting")
 
 -- Keymaps that use plugins, required last so every plugin is set up first.
 require("mildvii.plugins.keymaps")
