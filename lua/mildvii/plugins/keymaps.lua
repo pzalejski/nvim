@@ -108,7 +108,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, "Code actions")
 		map("n", "<leader>cr", vim.lsp.buf.rename, "Rename symbol")
 		map("n", "<leader>cR", "<cmd>RenameFile<CR>", "Rename file (updates imports)")
-		map("n", "<leader>cl", "<cmd>checkhealth vim.lsp<CR>", "LSP info")
+		map("n", "<leader>cL", "<cmd>checkhealth vim.lsp<CR>", "LSP info")
 	end,
 })
 
@@ -174,3 +174,16 @@ set("i", "<M-L>", copilot("accept_line"), { desc = "Copilot: accept line" })
 set("i", "<M-]>", copilot("next"), { desc = "Copilot: next suggestion" })
 set("i", "<M-[>", copilot("prev"), { desc = "Copilot: previous suggestion" })
 set("i", "<C-]>", copilot("dismiss", "<C-]>"), { desc = "Copilot: dismiss suggestion" })
+
+-- trouble
+set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
+set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
+set("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<CR>", { desc = "Symbols (Trouble)" })
+set(
+	"n",
+	"<leader>cl",
+	"<cmd>Trouble lsp toggle focus=false win.position=right<CR>",
+	{ desc = "LSP Definitions / references / ... (Trouble)" }
+)
+set("n", "<leader>xL", "<cmd>Trouble loclist toggle<CR>", { desc = "Location List (Trouble)" })
+set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<CR>", { desc = "Quickfix List (Trouble)" })
