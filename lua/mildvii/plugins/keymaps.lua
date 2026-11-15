@@ -135,3 +135,14 @@ set("n", "<leader>gh", function()
 	-- Stages the hunk, or unstages it when the cursor is on a staged hunk
 	require("gitsigns").stage_hunk()
 end, { desc = "Stage / unstage hunk" })
+
+-- mini.diff
+set("n", "<leader>gd", function()
+	MiniDiff.toggle_overlay(0)
+end, { desc = "Toggle diff overlay" })
+set({ "n", "x" }, "]c", function()
+	MiniDiff.goto_hunk("next")
+end, { desc = "Next hunk" })
+set({ "n", "x" }, "[c", function()
+	MiniDiff.goto_hunk("prev")
+end, { desc = "Previous hunk" })

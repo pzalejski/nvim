@@ -33,6 +33,10 @@
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.diff": {
+      "rev": "91d6ce4b7f400439fe761f01a58280f2c0f99c01",
+      "src": "https://github.com/nvim-mini/mini.diff"
+    },
     "mini.icons": {
       "rev": "fc90b3925a2a68282be06e28cfe0cbb366c75dad",
       "src": "https://github.com/nvim-mini/mini.icons"
