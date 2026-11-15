@@ -25,6 +25,9 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/catgoose/nvim-colorizer.lua",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+	"https://github.com/neovim/nvim-lspconfig",
 })
 
 -- Colorscheme: theme.lua is a symlink to the file Omarchy generates for the current theme.
@@ -44,6 +47,7 @@ require("mildvii.plugins.snacks")
 require("mildvii.plugins.ui")
 require("mildvii.plugins.navigation")
 require("mildvii.plugins.syntax")
+require("mildvii.plugins.lsp")
 
 -- Keymaps that use plugins, required last so every plugin is set up first.
 require("mildvii.plugins.keymaps")

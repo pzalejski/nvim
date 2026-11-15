@@ -3,4 +3,5 @@ return {
 	editor = require("mildvii.utils.editor"),
 	root = require("mildvii.utils.root"),
 	lualine = require("mildvii.utils.lualine"),
+	lsp = require("mildvii.utils.lsp"),
 }
