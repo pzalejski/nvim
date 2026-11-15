@@ -146,3 +146,8 @@ end, { desc = "Next hunk" })
 set({ "n", "x" }, "[c", function()
 	MiniDiff.goto_hunk("prev")
 end, { desc = "Previous hunk" })
+
+-- codediff
+set("n", "<leader>dv", "<cmd>CodeDiff<CR>", { desc = "Toggle diff view" })
+set("n", "<leader>dh", "<cmd>CodeDiff history %<CR>", { desc = "File history" })
+set("n", "<leader>dH", "<cmd>CodeDiff history<CR>", { desc = "Repo history" })
