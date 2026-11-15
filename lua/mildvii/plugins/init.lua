@@ -35,6 +35,7 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.diff",
 	"https://github.com/MunifTanjim/nui.nvim",
 	"https://github.com/esmuellert/codediff.nvim",
+	"https://github.com/zbirenbaum/copilot.lua",
 })
 
 -- Colorscheme: theme.lua is a symlink to the file Omarchy generates for the current theme.
@@ -58,6 +59,7 @@ require("mildvii.plugins.completion")
 require("mildvii.plugins.lsp")
 require("mildvii.plugins.formatting")
 require("mildvii.plugins.git")
+require("mildvii.plugins.ai")
 
 -- Keymaps that use plugins, required last so every plugin is set up first.
 require("mildvii.plugins.keymaps")

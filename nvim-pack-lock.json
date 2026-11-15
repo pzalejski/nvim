@@ -17,6 +17,10 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot.lua": {
+      "rev": "3547efbff9adeecbd9d431c0a2a8707b7f6a4131",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
     "gitsigns.nvim": {
       "rev": "dc7698f932792a764d3db95fedee26c38e728355",
       "src": "https://github.com/lewis6991/gitsigns.nvim"

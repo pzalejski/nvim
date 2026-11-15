@@ -156,3 +156,21 @@ set("n", "<leader>dH", "<cmd>CodeDiff history<CR>", { desc = "Repo history" })
 set("n", ";g", function()
 	Mildvii.git.lazygit()
 end, { desc = "Lazygit" })
+
+-- copilot (insert mode). With no suggestion showing, `<C-l>` asks for one and `<C-]>` keeps its normal behavior.
+local function copilot(action, fallback)
+	return function()
+		local suggestion = require("copilot.suggestion")
+		if fallback and not suggestion.is_visible() then
+			vim.api.nvim_feedkeys(vim.keycode(fallback), "n", false)
+			return
+		end
+		suggestion[action]()
+	end
+end
+set("i", "<C-l>", copilot("accept"), { desc = "Copilot: accept suggestion" })
+set("i", "<M-l>", copilot("accept_word"), { desc = "Copilot: accept word" })
+set("i", "<M-L>", copilot("accept_line"), { desc = "Copilot: accept line" })
+set("i", "<M-]>", copilot("next"), { desc = "Copilot: next suggestion" })
+set("i", "<M-[>", copilot("prev"), { desc = "Copilot: previous suggestion" })
+set("i", "<C-]>", copilot("dismiss", "<C-]>"), { desc = "Copilot: dismiss suggestion" })
