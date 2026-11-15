@@ -68,3 +68,11 @@ set("n", "<C-m>", "<C-i>", { desc = "Jump forward in jump list" })
 -- Open lines without continuing comments
 set("n", "<leader>o", "o<Esc>^", { desc = "Open line below" })
 set("n", "<leader>O", "O<Esc>^", { desc = "Open line above" })
+
+-- Copy the file path with `#L<line>`, for pointing agents at the exact line
+set("n", "<leader>yf", function()
+	Mildvii.editor.copy_path()
+end, { desc = "Copy relative path with line" })
+set("n", "<leader>yp", function()
+	Mildvii.editor.copy_path(true)
+end, { desc = "Copy absolute path with line" })

@@ -12,4 +12,18 @@ function M.close_hidden_buffers()
 	vim.notify(("Closed %d hidden buffer%s"):format(closed, closed == 1 and "" or "s"))
 end
 
+--- Copy the current file's path with the cursor line, e.g. `lua/mildvii/config/options.lua#L12`,
+--- so pasting it into an agent's prompt points at the exact line.
+---@param absolute? boolean Absolute path instead of relative to the cwd
+function M.copy_path(absolute)
+	local name = vim.api.nvim_buf_get_name(0)
+	if name == "" then
+		return vim.notify("Buffer has no file", vim.log.levels.WARN)
+	end
+	local path = vim.fn.fnamemodify(name, absolute and ":p" or ":.")
+	local text = ("%s#L%d"):format(path, vim.fn.line("."))
+	vim.fn.setreg("+", text)
+	vim.notify("Copied " .. text)
+end
+
 return M
