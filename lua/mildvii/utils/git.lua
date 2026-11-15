@@ -43,4 +43,20 @@ function M.open_line_commit()
 	pcall(vim.api.nvim_win_set_cursor, 0, { tonumber(orig_line), 0 })
 end
 
+-- Window lazygit was opened from, so `e` in lazygit can open files there
+local lazygit_origin
+
+--- Open lazygit in a float, remembering the current window
+function M.lazygit()
+	lazygit_origin = vim.api.nvim_get_current_win()
+	Snacks.lazygit()
+end
+
+--- Focus the window lazygit was opened from. Called by lazygit's edit command over `--remote-send`.
+function M.focus_lazygit_origin()
+	if lazygit_origin and vim.api.nvim_win_is_valid(lazygit_origin) then
+		vim.api.nvim_set_current_win(lazygit_origin)
+	end
+end
+
 return M

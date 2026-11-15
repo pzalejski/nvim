@@ -151,3 +151,8 @@ end, { desc = "Previous hunk" })
 set("n", "<leader>dv", "<cmd>CodeDiff<CR>", { desc = "Toggle diff view" })
 set("n", "<leader>dh", "<cmd>CodeDiff history %<CR>", { desc = "File history" })
 set("n", "<leader>dH", "<cmd>CodeDiff history<CR>", { desc = "Repo history" })
+
+-- snacks.lazygit: lazygit in a float; `e` on a file opens it in the window `;g` was pressed in
+set("n", ";g", function()
+	Mildvii.git.lazygit()
+end, { desc = "Lazygit" })
