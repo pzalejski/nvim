@@ -65,7 +65,19 @@ local lualine_opts = {
 			{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
 			{ components.pretty_path, color = { gui = "italic" } },
 		},
-		lualine_x = { components.recording, "diagnostics", "diff" },
+		lualine_x = {
+			components.recording,
+			{
+				"diagnostics",
+				symbols = {
+					error = Mildvii.icons.diagnostics.ERROR,
+					warn = Mildvii.icons.diagnostics.WARN,
+					info = Mildvii.icons.diagnostics.INFO,
+					hint = Mildvii.icons.diagnostics.HINT,
+				},
+			},
+			"diff",
+		},
 		lualine_y = { "progress" },
 		lualine_z = { { "location", separator = { left = '', right = '' }, left_padding = 2 } },
 	},
