@@ -20,6 +20,14 @@ vim.diagnostic.config({
 	severity_sort = true,
 	-- Inline `● message`
 	virtual_text = { prefix = "●", source = false, format = with_source },
+	-- `]d` / `[d` open the diagnostic in a float after jumping
+	jump = {
+		on_jump = function(diagnostic, bufnr)
+			if diagnostic then
+				vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+			end
+		end,
+	},
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = diagnostic_icons.ERROR,
