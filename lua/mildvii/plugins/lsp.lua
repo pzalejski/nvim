@@ -50,6 +50,9 @@ local servers = {
 	"rust_analyzer",
 }
 
+-- Every server also gets blink.cmp's completion capabilities
+vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
+
 -- Server-specific settings live in after/lsp/<server>.lua; Neovim merges them over nvim-lspconfig's lsp/<server>.lua
 vim.lsp.enable(servers)
 
