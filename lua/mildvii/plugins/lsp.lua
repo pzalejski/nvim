@@ -50,13 +50,7 @@ local servers = {
 	"rust_analyzer",
 }
 
--- Server-specific settings live in lua/mildvii/lsp/<server>.lua, merged over nvim-lspconfig's defaults
-for _, name in ipairs(servers) do
-	if #vim.api.nvim_get_runtime_file("lua/mildvii/lsp/" .. name .. ".lua", false) > 0 then
-		vim.lsp.config(name, require("mildvii.lsp." .. name))
-	end
-end
-
+-- Server-specific settings live in after/lsp/<server>.lua; Neovim merges them over nvim-lspconfig's lsp/<server>.lua
 vim.lsp.enable(servers)
 
 -- Rename the current file, letting language servers update imports (workspace/willRenameFiles)
