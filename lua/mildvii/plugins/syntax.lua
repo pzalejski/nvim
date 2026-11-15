@@ -44,3 +44,25 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,
 })
+
+-- todo-comments: highlight TODO, FIXME, and the like
+require("todo-comments").setup()
+
+-- colorizer: paint hex, rgb, hsl, ANSI, and CSS variable colors as backgrounds
+require("colorizer").setup({
+	options = {
+		parsers = {
+			-- Preset: hex, rgb(), hsl(), oklch(), and CSS variables
+			css = true,
+			-- Color names like `red` or `blue` stay unpainted; only color values are
+			names = { enable = false },
+			-- ANSI / xterm 256-color codes
+			xterm = { enable = true },
+			tailwind = { enable = false },
+		},
+		display = { mode = "background" },
+	},
+})
+
+-- Neovim's LSP document colors are off, so colors aren't painted twice
+vim.lsp.document_color.enable(false)

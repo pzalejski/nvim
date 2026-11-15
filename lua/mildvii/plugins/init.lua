@@ -23,6 +23,8 @@ vim.pack.add({
 	"https://github.com/rachartier/tiny-cmdline.nvim",
 	"https://github.com/stevearc/oil.nvim",
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+	"https://github.com/folke/todo-comments.nvim",
+	"https://github.com/catgoose/nvim-colorizer.lua",
 })
 
 -- Colorscheme: theme.lua is a symlink to the file Omarchy generates for the current theme.
