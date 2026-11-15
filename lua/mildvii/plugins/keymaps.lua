@@ -111,3 +111,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "<leader>cl", "<cmd>checkhealth vim.lsp<CR>", "LSP info")
 	end,
 })
+
+-- gitsigns
+set("n", "<leader>gb", function()
+	require("gitsigns").blame_line()
+end, { desc = "Blame line" })
+set("n", "<leader>gB", function()
+	require("gitsigns").blame()
+end, { desc = "Blame buffer" })
+set("n", "<leader>go", function()
+	Mildvii.git.open_line_commit()
+end, { desc = "Open file at the line's last commit" })
+set("n", "<leader>gs", function()
+	local gitsigns = require("gitsigns")
+	-- Stage the buffer, or unstage it when nothing unstaged is left
+	if vim.tbl_isempty(gitsigns.get_hunks(0) or {}) then
+		gitsigns.reset_buffer_index()
+	else
+		gitsigns.stage_buffer()
+	end
+end, { desc = "Stage / unstage buffer" })
+set("n", "<leader>gh", function()
+	-- Stages the hunk, or unstages it when the cursor is on a staged hunk
+	require("gitsigns").stage_hunk()
+end, { desc = "Stage / unstage hunk" })

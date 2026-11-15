@@ -5,4 +5,5 @@ return {
 	root = require("mildvii.utils.root"),
 	lualine = require("mildvii.utils.lualine"),
 	lsp = require("mildvii.utils.lsp"),
+	git = require("mildvii.utils.git"),
 }

@@ -31,6 +31,7 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	"https://github.com/nvim-mini/mini.pairs",
 	"https://github.com/stevearc/conform.nvim",
+	"https://github.com/lewis6991/gitsigns.nvim",
 })
 
 -- Colorscheme: theme.lua is a symlink to the file Omarchy generates for the current theme.
@@ -53,6 +54,7 @@ require("mildvii.plugins.syntax")
 require("mildvii.plugins.completion")
 require("mildvii.plugins.lsp")
 require("mildvii.plugins.formatting")
+require("mildvii.plugins.git")
 
 -- Keymaps that use plugins, required last so every plugin is set up first.
 require("mildvii.plugins.keymaps")
