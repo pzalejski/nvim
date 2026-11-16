@@ -10,6 +10,23 @@ require("tiny-cmdline").setup({
 	},
 })
 
+-- Give the command line box the editor background instead of the darker float one.
+-- Reapplied on every colorscheme change, which clears these groups.
+local function cmdline_hl()
+	local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+	local msg = vim.api.nvim_get_hl(0, { name = "MsgArea", link = false })
+	local border = vim.api.nvim_get_hl(0, { name = "FloatBorder", link = false })
+	local title = vim.api.nvim_get_hl(0, { name = "FloatTitle", link = false })
+	vim.api.nvim_set_hl(0, "TinyCmdlineNormal", { fg = msg.fg or normal.fg, bg = normal.bg })
+	vim.api.nvim_set_hl(0, "TinyCmdlineBorder", { fg = border.fg, bg = normal.bg })
+	vim.api.nvim_set_hl(0, "TinyCmdlineTitle", { fg = title.fg, bg = normal.bg, bold = title.bold })
+end
+cmdline_hl()
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("mildvii_cmdline_hl", { clear = true }),
+	callback = cmdline_hl,
+})
+
 -- incline: a filename tag in the top-right corner of each window, so every split says which file it holds
 require("incline").setup({
 	hide = {
@@ -58,7 +75,7 @@ local lualine_opts = {
 		},
 	},
 	sections = {
-		lualine_a = { { "mode", separator = { left = '', right = '' }, right_padding = 2 } },
+		lualine_a = { { "mode", separator = { left = "", right = "" }, right_padding = 2 } },
 		lualine_b = { "branch" },
 		lualine_c = {
 			components.root_name,
@@ -79,7 +96,7 @@ local lualine_opts = {
 			"diff",
 		},
 		lualine_y = { "progress" },
-		lualine_z = { { "location", separator = { left = '', right = '' }, left_padding = 2 } },
+		lualine_z = { { "location", separator = { left = "", right = "" }, left_padding = 2 } },
 	},
 }
 require("lualine").setup(lualine_opts)

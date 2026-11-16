@@ -25,7 +25,8 @@ function M.open_line_commit()
 		return vim.notify("This line isn't committed yet", vim.log.levels.WARN)
 	end
 
-	local root = vim.trim(vim.system({ "git", "rev-parse", "--show-toplevel" }, { cwd = dir, text = true }):wait().stdout)
+	local root =
+		vim.trim(vim.system({ "git", "rev-parse", "--show-toplevel" }, { cwd = dir, text = true }):wait().stdout)
 	local show = vim.system({ "git", "show", sha .. ":" .. path }, { cwd = root, text = true }):wait()
 	if show.code ~= 0 then
 		return vim.notify("git show failed: " .. vim.trim(show.stderr), vim.log.levels.ERROR)

@@ -6,4 +6,5 @@ return {
 	lualine = require("mildvii.utils.lualine"),
 	lsp = require("mildvii.utils.lsp"),
 	git = require("mildvii.utils.git"),
+	dashboard = require("mildvii.utils.dashboard"),
 }

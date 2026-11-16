@@ -1,3 +1,6 @@
+-- Start time, for the dashboard footer
+vim.g.mildvii_start = vim.uv.hrtime()
+
 vim.loader.enable()
 
 _G.Mildvii = require("mildvii.utils")

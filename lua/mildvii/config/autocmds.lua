@@ -8,11 +8,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Only the active window shows the cursorline
+-- Only the active window shows the cursorline (never the dashboard)
 vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
 	group = group,
 	callback = function()
-		vim.wo.cursorline = true
+		vim.wo.cursorline = vim.bo.filetype ~= "snacks_dashboard"
 	end,
 })
 vim.api.nvim_create_autocmd("WinLeave", {
